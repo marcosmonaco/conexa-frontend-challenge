@@ -41,7 +41,7 @@ export default function MainPage({
 
   return (
     <div className="container py-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      <div className="grid grid-cols-2 gap-8 mb-12">
         <CharacterSection
           title="Character #1"
           characters={chars1}

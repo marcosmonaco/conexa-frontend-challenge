@@ -45,7 +45,7 @@ export default function CharacterCard({
     <>
       <div
         onClick={onClick}
-        className={`relative w-52 cursor-pointer rounded-lg bg-gray-800 border-4 overflow-hidden shadow-md transition-all hover:shadow-lg duration-400 flex flex-col items-center ${
+        className={`relative w-32 lg:w-52 cursor-pointer rounded-lg bg-gray-800 border-4 overflow-hidden shadow-md transition-all hover:shadow-lg duration-400 flex flex-col items-center ${
           isSelected ? "border-RM-cyan-300" : "border-gray-700"
         }`}
       >
@@ -53,26 +53,28 @@ export default function CharacterCard({
           <img
             src={character.image}
             alt={character.name}
-            className={`h-32 w-32 rounded-full border-4 border-RM-green-300 transition-all duration-500 ${
+            className={`h-20 w-20 lg:h-32 lg:w-32 rounded-full border-4 border-RM-green-300 transition-all duration-500 ${
               isSelected ? "shadow-glow-green" : ""
             } object-cover`}
           />
 
           {/* Indicador de Status*/}
           <div
-            className={`absolute bottom-1 right-2 h-7 w-7 rounded-full border-2 border-gray-800 ${statusColor} flex items-center justify-center`}
+            className={`absolute bottom-1 right-1 lg:right-2 h-6 w-6 lg:h-7 lg:w-7 rounded-full border-2 border-gray-800 ${statusColor} flex items-center justify-center`}
           >
             <StatusIcon size={14} className={`${iconColor}`} />
           </div>
         </div>
 
         {/* Debajo de la imagen */}
-        <div className="w-full px-4 pt-4 pb-6 flex flex-col items-center gap-2">
-          <h3 className="text-lg font-semibold text-RM-cyan-300 text-center  line-clamp-1">
+        <div className="w-full px-1 lg:px-4 pt-4 pb-6 flex flex-col items-center gap-2">
+          <h3 className="text-sm lg:text-lg font-semibold text-RM-cyan-300 text-center  line-clamp-1">
             {character.name}
           </h3>
 
-          <p className="text-sm font-bold text-white">{character.species}</p>
+          <p className="text-xs lg:text-sm font-bold text-white">
+            {character.species}
+          </p>
 
           <button
             onClick={handleModalOpen}

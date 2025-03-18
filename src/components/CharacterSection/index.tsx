@@ -1,13 +1,15 @@
-import {useRef, useEffect} from "react";
+import {useState, useRef, useEffect} from "react";
 
 import {Character} from "@/models/character";
+import {StatusFilter} from "@/models/status";
 
 import {CharacterSectionProps} from "./types";
 import CharacterCard from "./CharacterCard";
 import Loader from "../Loader";
+import StatusFilters from "../StatusFilter";
 
 export default function CharacterSection({
-  // title,
+  title,
   characters,
   selectedCharacter,
   setSelectedCharacter,
@@ -16,6 +18,25 @@ export default function CharacterSection({
   hasMore,
 }: CharacterSectionProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  // Estado para los filtros de status
+  const [statusFilter, setStatusFilter] = useState<StatusFilter>({
+    alive: true,
+    dead: true,
+    unknown: true,
+  });
+
+  // Verificar si todos los filtros están desactivados
+  const allFiltersOff = !Object.values(statusFilter).some((value) => value);
+
+  // Filtrar personajes según los filtros seleccionados
+  const filteredCharacters = characters.filter((character) => {
+    // Si todos los filtros están desactivados, no mostrar ninguno
+    if (allFiltersOff) return false;
+
+    const status = character.status.toLowerCase() as keyof StatusFilter;
+    return statusFilter[status];
+  });
 
   const handleCharacterClick = (character: Character) => {
     // Si el personaje clickeado ya está seleccionado, lo deseleccionamos
@@ -27,7 +48,15 @@ export default function CharacterSection({
     }
   };
 
-  // Detectar cuando el scroll llega casi al final para cargar más personajes
+  const handleFilterChange = (status: string | number | symbol) => {
+    const filterKey = status as keyof StatusFilter;
+    setStatusFilter((prev) => ({
+      ...prev,
+      [filterKey]: !prev[filterKey],
+    }));
+  };
+
+  // Detectar cuando el scroll llega casi al final para cargar más characters
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container) return;
@@ -35,7 +64,7 @@ export default function CharacterSection({
     const handleScroll = () => {
       const {scrollTop, scrollHeight, clientHeight} = container;
 
-      // Cuando el usuario ha scrolleado hasta 100px desde el final
+      // Cuando el usuario scrolleo a 100px del final
       if (
         scrollHeight - scrollTop - clientHeight < 100 &&
         !loading &&
@@ -51,10 +80,18 @@ export default function CharacterSection({
 
   return (
     <div className="w-full bg-transparent border-2 border-RM-green-300 shadow-glow-green rounded-xl pt-4 px-2">
-      {/* <h2 className="text-xl font-semibold text-center py-4">{title}</h2> */}
-      <div ref={scrollContainerRef} className="h-96 overflow-y-auto">
-        <div className="flex flex-wrap gap-4 justify-center ">
-          {characters.map((character) => (
+      {/* Filtros de status con checkboxes personalizados */}
+      <h3 className="text-lg font-semibold text-white text-center pb-2">
+        {title}
+      </h3>
+      <StatusFilters
+        statusFilter={statusFilter}
+        onChange={handleFilterChange}
+      />
+
+      <div ref={scrollContainerRef} className="h-64 xl:h-96 overflow-y-auto">
+        <div className="flex flex-wrap gap-4 justify-center">
+          {filteredCharacters.map((character) => (
             <div key={character.id} className="h-full">
               <CharacterCard
                 character={character}
@@ -64,17 +101,28 @@ export default function CharacterSection({
             </div>
           ))}
         </div>
-        {loading && (
-          <div className="flex flex-col items-center justify-center py-12">
-            <Loader />
-          </div>
-        )}
-        {/* Si se llega al final de la lista */}
-        {!hasMore && characters.length > 0 && (
-          <div className="text-center py-4 text-gray-500 font-semibold">
-            Thats it, no more characters to show!
-          </div>
-        )}
+
+        {/* Área de mensajes combinada */}
+        <div className="text-center py-8">
+          {loading ? (
+            // Mensaje de carga
+            <div className="flex flex-col items-center justify-center">
+              <Loader />
+            </div>
+          ) : filteredCharacters.length === 0 ? (
+            // No hay resultados
+            <div className="text-gray-400">
+              {allFiltersOff
+                ? "Please select at least one filter."
+                : "No characters found with the selected filters."}
+            </div>
+          ) : !hasMore && characters.length > 0 ? (
+            // No hay más personajes
+            <div className="text-gray-500 font-semibold">
+              You are done, no more characters to show!
+            </div>
+          ) : null}
+        </div>
       </div>
     </div>
   );

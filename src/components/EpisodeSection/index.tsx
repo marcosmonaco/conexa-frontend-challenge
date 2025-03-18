@@ -14,7 +14,7 @@ export default function EpisodeSection({
       <h2 className="text-xl font-semibold mb-1 text-RM-cyan-300 text-center">
         {title}
       </h2>
-      <h2 className="text-xl font-semibold mb-2 text-RM-cyan-300 text-center">
+      <h2 className="text-lg font-semibold mb-2 text-RM-cyan-300 text-center">
         {characters}
       </h2>
       {!isSelected ? (
@@ -26,7 +26,7 @@ export default function EpisodeSection({
           No exclusive episodes found
         </p>
       ) : (
-        <div className="h-72 overflow-y-auto pr-2 flex flex-col gap-2">
+        <div className="h-32 lg:h-56 overflow-y-auto pr-2 flex flex-col gap-2">
           {episodes.map((episode) => (
             <EpisodeCard key={episode.id} episode={episode} />
           ))}
