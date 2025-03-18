@@ -48,6 +48,7 @@ export default function CharacterCard({
         className={`relative w-32 lg:w-52 cursor-pointer rounded-lg bg-gray-800 border-4 overflow-hidden shadow-md transition-all hover:shadow-lg duration-400 flex flex-col items-center ${
           isSelected ? "border-RM-cyan-300" : "border-gray-700"
         }`}
+        data-testid="character-card"
       >
         <div className="relative mt-6">
           <img
