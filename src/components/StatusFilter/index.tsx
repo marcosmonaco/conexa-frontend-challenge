@@ -7,7 +7,7 @@ export default function StatusFilters({
   onChange,
 }: StatusFiltersProps) {
   return (
-    <div className="flex flex-col lg:flex-row justify-center gap-6 pb-4">
+    <div className="flex flex-wrap justify-center gap-6 pb-2">
       {/* Filtro Alive */}
       <label className="flex items-center gap-2 cursor-pointer">
         <div className="relative flex items-center justify-center">

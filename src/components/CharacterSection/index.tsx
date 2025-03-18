@@ -81,13 +81,13 @@ export default function CharacterSection({
   return (
     <div className="w-full bg-transparent border-2 border-RM-green-300 shadow-glow-green rounded-xl pt-4 px-2">
       {/* Filtros de status con checkboxes personalizados */}
-      <h3 className="text-lg font-semibold text-white text-center pb-2">
-        {title}
-      </h3>
-      <StatusFilters
-        statusFilter={statusFilter}
-        onChange={handleFilterChange}
-      />
+      <div className="flex flex-col lg:flex-row items-center justify-between mx-1 lg:mx-10">
+        <h3 className="text-lg font-semibold text-white pb-2">{title}</h3>
+        <StatusFilters
+          statusFilter={statusFilter}
+          onChange={handleFilterChange}
+        />
+      </div>
 
       <div ref={scrollContainerRef} className="h-64 xl:h-96 overflow-y-auto">
         <div className="flex flex-wrap gap-4 justify-center">
@@ -102,15 +102,12 @@ export default function CharacterSection({
           ))}
         </div>
 
-        {/* Área de mensajes combinada */}
         <div className="text-center py-8">
           {loading ? (
-            // Mensaje de carga
             <div className="flex flex-col items-center justify-center">
               <Loader />
             </div>
           ) : filteredCharacters.length === 0 ? (
-            // No hay resultados
             <div className="text-gray-400">
               {allFiltersOff
                 ? "Please select at least one filter."

@@ -51,17 +51,21 @@ export default function CharacterCard({
         data-testid="character-card"
       >
         <div className="relative mt-6">
-          <img
-            src={character.image}
-            alt={character.name}
-            className={`h-20 w-20 lg:h-32 lg:w-32 rounded-full border-4 border-RM-green-300 transition-all duration-500 ${
-              isSelected ? "shadow-glow-green" : ""
-            } object-cover`}
-          />
+          <div className="relative">
+            {isSelected && (
+              <div className="absolute inset-0 rounded-full border-4 border-RM-green-300 shadow-glow-green animate-pulse"></div>
+            )}
+
+            <img
+              src={character.image}
+              alt={character.name}
+              className="relative h-20 w-20 lg:h-32 lg:w-32 rounded-full border-4 border-RM-green-300 transition-all duration-500 object-cover z-10"
+            />
+          </div>
 
           {/* Indicador de Status*/}
           <div
-            className={`absolute bottom-1 right-1 lg:right-2 h-6 w-6 lg:h-7 lg:w-7 rounded-full border-2 border-gray-800 ${statusColor} flex items-center justify-center`}
+            className={`absolute bottom-1 right-1 lg:right-2 h-6 w-6 lg:h-7 lg:w-7 rounded-full border-2 border-gray-800 ${statusColor} flex items-center justify-center z-20`}
           >
             <StatusIcon size={14} className={`${iconColor}`} />
           </div>

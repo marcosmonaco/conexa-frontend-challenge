@@ -26,10 +26,16 @@ export default function EpisodeSection({
           No exclusive episodes found
         </p>
       ) : (
-        <div className="h-32 lg:h-56 overflow-y-auto pr-2 flex flex-col gap-2">
-          {episodes.map((episode) => (
-            <EpisodeCard key={episode.id} episode={episode} />
-          ))}
+        <div className="relative">
+          <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-b from-gray-800 to-transparent z-10" />
+
+          <div className="h-32 lg:h-56 overflow-y-auto pr-2 flex flex-col gap-2 py-2">
+            {episodes.map((episode) => (
+              <EpisodeCard key={episode.id} episode={episode} />
+            ))}
+          </div>
+
+          <div className="absolute bottom-0 left-0 right-3 h-8 bg-gradient-to-t from-gray-800 to-transparent z-10" />
         </div>
       )}
     </div>
