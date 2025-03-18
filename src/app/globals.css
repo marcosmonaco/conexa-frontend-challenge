@@ -3,6 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --shadow-glow-green: 0 0 15px #8bcf21;
+  --shadow-glow-cyan: 0 0 15px #83d2e4;
+  --shadow-glow-brown: 0 0 15px #e5d29f;
 }
 
 @theme inline {
@@ -10,6 +13,17 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-RM-cyan-300: #83d2e4;
+  --color-RM-cyan-400: #477385;
+  --color-RM-green-300: #8bcf21;
+  --color-RM-green-400: #2f9331;
+  --color-RM-gray-300: #e7e0d8;
+  --color-RM-brown-300: #e5d29f;
+  --color-RM-brown-400: #c19978;
+  --color-RM-brown-500: #926f44;
+  --shadow-glow-green: var(--shadow-glow-green);
+  --shadow-glow-cyan: var(--shadow-glow-cyan);
+  --shadow-glow-brown: var(--shadow-glow-brown);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +37,12 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+img {
+  user-select: none;
+}
+button:hover {
+  cursor: pointer;
+  opacity: 70%;
+  transition: all 0.3s;
 }
