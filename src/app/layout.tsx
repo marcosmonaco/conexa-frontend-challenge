@@ -14,8 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Frontend Challenge - Rick and Morty",
+  title: "Rick & Morty - Frontend Challenge",
   description: "Desafio Frontend realizado por Marcos Monaco para Conexa",
+  icons: {
+    icon: "/svg/favicon.svg", // Basico
+    apple: "/svg/favicon.svg", // Para dispositivos Apple
+  },
 };
 
 export default function RootLayout({
