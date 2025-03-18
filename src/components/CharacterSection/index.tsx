@@ -49,7 +49,7 @@ export default function CharacterSection({
   }, [loading, hasMore, loadMore]);
 
   return (
-    <div className="w-full bg-transparent border-2 border-RM-green-300 shadow-glow-green  rounded-xl py-4">
+    <div className="w-full bg-transparent border-2 border-RM-green-300 shadow-glow-green rounded-xl py-4 px-2">
       {/* <h2 className="text-xl font-semibold text-center py-4">{title}</h2> */}
       <div ref={scrollContainerRef} className="h-[300px] overflow-y-auto">
         <div className="flex flex-wrap gap-4 justify-center ">
