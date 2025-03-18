@@ -1,5 +1,7 @@
 import "@testing-library/jest-dom";
+
 import {render, screen, fireEvent} from "@testing-library/react";
+
 import CharacterCard from ".";
 import {Character} from "../../../models/character";
 import {CharacterModalProps} from "./CharacterModal/types";
@@ -51,7 +53,7 @@ describe("CharacterCard", () => {
     expect(screen.getByText("Rick Sanchez")).toBeInTheDocument();
     expect(screen.getByText("Human")).toBeInTheDocument();
     expect(screen.getByText("View details")).toBeInTheDocument();
-    expect(screen.getByAltText("Rick Sanchez")).toBeInTheDocument(); // Image alt text
+    expect(screen.getByAltText("Rick Sanchez")).toBeInTheDocument();
   });
 
   test("displays correct status icon for Alive character", () => {
