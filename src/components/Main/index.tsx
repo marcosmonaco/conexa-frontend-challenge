@@ -9,6 +9,7 @@ import EpisodeSection from "@/components/EpisodeSection";
 import {Character} from "@/models/character";
 
 import {MainPageProps} from "./types";
+import Loader from "../Loader";
 
 export default function MainPage({
   initialCharacters,
@@ -63,7 +64,7 @@ export default function MainPage({
       </div>
 
       {loading && (selectedCharacter1 || selectedCharacter2) ? (
-        <div className="text-center py-12">Loading episodes...</div>
+        <Loader />
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <EpisodeSection

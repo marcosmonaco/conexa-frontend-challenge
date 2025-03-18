@@ -9,14 +9,20 @@ export default function EpisodeSection({
   emptyMessage = "Select a character to see their episodes",
 }: EpisodeSectionProps) {
   return (
-    <div className="pb-5">
-      <h2 className="text-xl font-semibold mb-4 text-RM-cyan-300">{title}</h2>
+    <div className="pb-5 bg-gray-800 border-4 border-RM-cyan-300 shadow-glow-cyan rounded-lg p-4">
+      <h2 className="text-xl font-semibold mb-4 text-RM-cyan-300 text-center">
+        {title}
+      </h2>
       {!isSelected ? (
-        <p className="text-gray-500">{emptyMessage}</p>
+        <p className="text-gray-500 text-center font-semibold">
+          {emptyMessage}
+        </p>
       ) : episodes.length === 0 ? (
-        <p className="text-gray-500">No exclusive episodes found</p>
+        <p className="text-gray-500 text-center font-semibold">
+          No exclusive episodes found
+        </p>
       ) : (
-        <div className="h-52 overflow-y-auto pr-2 ">
+        <div className="h-72 overflow-y-auto pr-2 flex flex-col gap-2">
           {episodes.map((episode) => (
             <EpisodeCard key={episode.id} episode={episode} />
           ))}

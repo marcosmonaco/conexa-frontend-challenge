@@ -4,6 +4,7 @@ import {Character} from "@/models/character";
 
 import {CharacterSectionProps} from "./types";
 import CharacterCard from "./CharacterCard";
+import Loader from "../Loader";
 
 export default function CharacterSection({
   // title,
@@ -49,9 +50,9 @@ export default function CharacterSection({
   }, [loading, hasMore, loadMore]);
 
   return (
-    <div className="w-full bg-transparent border-2 border-RM-green-300 shadow-glow-green rounded-xl py-4 px-2">
+    <div className="w-full bg-transparent border-2 border-RM-green-300 shadow-glow-green rounded-xl pt-4 px-2">
       {/* <h2 className="text-xl font-semibold text-center py-4">{title}</h2> */}
-      <div ref={scrollContainerRef} className="h-[300px] overflow-y-auto">
+      <div ref={scrollContainerRef} className="h-96 overflow-y-auto">
         <div className="flex flex-wrap gap-4 justify-center ">
           {characters.map((character) => (
             <div key={character.id} className="h-full">
@@ -64,8 +65,8 @@ export default function CharacterSection({
           ))}
         </div>
         {loading && (
-          <div className="text-center py-4">
-            <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-amber-600 border-t-transparent"></div>
+          <div className="flex flex-col items-center justify-center py-12">
+            <Loader />
           </div>
         )}
         {/* Si se llega al final de la lista */}
