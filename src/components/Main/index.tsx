@@ -68,27 +68,26 @@ export default function MainPage({
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <EpisodeSection
-            title={`${
-              selectedCharacter1?.name || "Character #1"
-            } - Exclusive Episodes`}
+            title="Exclusive Episodes"
             episodes={episodesChar1}
+            characters={`${selectedCharacter1?.name || "Character #1"} `}
             isSelected={!!selectedCharacter1}
           />
 
           <EpisodeSection
-            title={`${selectedCharacter1?.name || "Character #1"} & ${
-              selectedCharacter2?.name || "Character #2"
-            } - Shared Episodes`}
+            title="Shared Episodes"
             episodes={sharedEpisodes}
+            characters={`${selectedCharacter1?.name || "Character #1"} & ${
+              selectedCharacter2?.name || "Character #2"
+            }`}
             isSelected={!!selectedCharacter1 && !!selectedCharacter2}
             emptyMessage="Select both characters to see shared episodes"
           />
 
           <EpisodeSection
-            title={`${
-              selectedCharacter2?.name || "Character #2"
-            } - Exclusive Episodes`}
+            title="Exclusive Episodes"
             episodes={episodesChar2}
+            characters={`${selectedCharacter2?.name || "Character #2"}`}
             isSelected={!!selectedCharacter2}
           />
         </div>

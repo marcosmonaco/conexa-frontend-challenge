@@ -13,4 +13,5 @@ export interface EpisodeSectionProps {
   episodes: Episode[];
   isSelected: boolean;
   emptyMessage?: string;
+  characters: string;
 }

@@ -12,24 +12,23 @@ export default function CharacterModal({
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden flex items-center justify-center">
-      {/* Background overlay - blurred but transparent */}
       <div
         className="fixed inset-0 backdrop-blur-sm bg-black/30 transition-opacity"
         onClick={onHide}
         aria-hidden="true"
       />
 
-      {/* Modal panel - absolutely centered */}
-      <div className="relative max-h-[90vh] overflow-y-auto w-full max-w-lg rounded-lg bg-gray-800 text-left shadow-xl transition-all z-10 m-4">
+      {/* Modal */}
+      <div className="relative overflow-y-auto w-full max-w-lg rounded-lg bg-gray-800 text-left transition-all z-10 m-4 border-4 border-RM-green-300 shadow-glow-green">
         <div className="relative bg-gray-800 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
           {/* Close button */}
           <button
             type="button"
-            className="absolute top-3 right-3 text-gray-400 hover:text-white focus:outline-none"
+            className="absolute top-2 right-1 text-gray-400 hover:text-white focus:outline-none"
             onClick={onHide}
           >
             <svg
-              className="h-6 w-6"
+              className="h-5 w-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -99,10 +98,10 @@ export default function CharacterModal({
           </div>
         </div>
 
-        <div className="bg-gray-700 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+        <div className="bg-gray-700 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t-4 border-RM-green-300">
           <button
             type="button"
-            className="inline-flex w-full justify-center rounded-md border border-transparent bg-RM-cyan-500 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-RM-cyan-600 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
+            className="inline-flex w-full justify-center rounded-md border-3 border-gray-600 px-4 py-2 text-base text-white shadow-sm hover:opacity-90 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
             onClick={onHide}
           >
             Close
