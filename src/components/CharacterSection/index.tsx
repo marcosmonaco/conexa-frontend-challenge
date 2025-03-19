@@ -18,20 +18,15 @@ export default function CharacterSection({
   hasMore,
 }: CharacterSectionProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-  // Estado para los filtros de status
   const [statusFilter, setStatusFilter] = useState<StatusFilter>({
     alive: true,
     dead: true,
     unknown: true,
   });
 
-  // Verificar si todos los filtros están desactivados
   const allFiltersOff = !Object.values(statusFilter).some((value) => value);
 
-  // Filtrar personajes según los filtros seleccionados
   const filteredCharacters = characters.filter((character) => {
-    // Si todos los filtros están desactivados, no mostrar ninguno
     if (allFiltersOff) return false;
 
     const status = character.status.toLowerCase() as keyof StatusFilter;
@@ -39,11 +34,9 @@ export default function CharacterSection({
   });
 
   const handleCharacterClick = (character: Character) => {
-    // Si el personaje clickeado ya está seleccionado, lo deseleccionamos
     if (selectedCharacter?.id === character.id) {
       setSelectedCharacter(null);
     } else {
-      // Si no está seleccionado o es otro personaje, lo seleccionamos
       setSelectedCharacter(character);
     }
   };
@@ -56,7 +49,6 @@ export default function CharacterSection({
     }));
   };
 
-  // Detectar cuando el scroll llega casi al final para cargar más characters
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container) return;

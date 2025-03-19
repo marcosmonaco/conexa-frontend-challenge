@@ -13,7 +13,6 @@ export default function CharacterCard({
 }: CharacterCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Configuración de colores según el estado
   const statusColor =
     {
       Alive: "bg-green-500",
@@ -21,7 +20,6 @@ export default function CharacterCard({
       unknown: "bg-gray-500",
     }[character.status as "Alive" | "Dead" | "unknown"] || "bg-gray-500";
 
-  // Configuración de iconos según el estado
   const StatusIcon =
     {
       Alive: Heart,
@@ -63,7 +61,6 @@ export default function CharacterCard({
             />
           </div>
 
-          {/* Indicador de Status*/}
           <div
             className={`absolute bottom-1 right-1 lg:right-2 h-6 w-6 lg:h-7 lg:w-7 rounded-full border-2 border-gray-800 ${statusColor} flex items-center justify-center z-20`}
           >
@@ -71,7 +68,6 @@ export default function CharacterCard({
           </div>
         </div>
 
-        {/* Debajo de la imagen */}
         <div className="w-full px-1 lg:px-4 pt-4 pb-6 flex flex-col items-center gap-2">
           <h3 className="text-sm lg:text-lg font-semibold text-RM-cyan-300 text-center  line-clamp-1">
             {character.name}

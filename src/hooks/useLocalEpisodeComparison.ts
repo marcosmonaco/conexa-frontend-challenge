@@ -24,7 +24,6 @@ export function useEpisodeComparison(
 
     setLoading(true);
 
-    // Obtener IDs de los episodios
     const char1EpisodeIds = character1
       ? getEpisodeIdsFromUrls(character1.episode)
       : [];
@@ -32,7 +31,6 @@ export function useEpisodeComparison(
       ? getEpisodeIdsFromUrls(character2.episode)
       : [];
 
-    // Calcular episodios exclusivos y compartidos
     if (character1 && character2) {
       const char1OnlyIds = char1EpisodeIds.filter(
         (id) => !char2EpisodeIds.includes(id)
@@ -44,7 +42,6 @@ export function useEpisodeComparison(
         char2EpisodeIds.includes(id)
       );
 
-      // Obtener los episodios a partir de los IDs
       setEpisodesChar1(
         allEpisodes.filter((ep) => char1OnlyIds.includes(ep.id))
       );

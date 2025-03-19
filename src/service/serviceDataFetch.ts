@@ -3,7 +3,10 @@ import {unstable_cache} from "next/cache";
 import {Character} from "@/models/character";
 import {Episode} from "@/models/episode";
 
-// Función para obtener todos los personajes de la API
+/**
+ * Trae todos los personajes de la API
+ * @returns Promesa que contiene un array de objetos Character
+ */
 async function fetchAllCharacters(): Promise<Character[]> {
   let allCharacters: Character[] = [];
   let nextPage = 1;
@@ -23,7 +26,10 @@ async function fetchAllCharacters(): Promise<Character[]> {
   return allCharacters;
 }
 
-// Función para obtener todos los episodios de la API
+/**
+ * Traigo todos los episodios de la API
+ * @returns Promesa que contiene un array de objetos de episodios
+ */
 async function fetchAllEpisodes(): Promise<Episode[]> {
   let allEpisodes: Episode[] = [];
   let nextPage = 1;
@@ -43,29 +49,23 @@ async function fetchAllEpisodes(): Promise<Episode[]> {
   return allEpisodes;
 }
 
-// Cachear la función de personajes por 31 días (en segundos)
 export const getAllCharacters = unstable_cache(
   fetchAllCharacters,
   ["rick-and-morty-characters"],
   {revalidate: 31 * 24 * 60 * 60} // 31 días en segundos
 );
 
-// Cachear la función de episodios por 31 días (en segundos)
 export const getAllEpisodes = unstable_cache(
   fetchAllEpisodes,
   ["rick-and-morty-episodes"],
   {revalidate: 31 * 24 * 60 * 60} // 31 días en segundos
 );
 
-// Función para obtener episodios por IDs
-export const getEpisodesByIds = (
-  allEpisodes: Episode[],
-  ids: number[]
-): Episode[] => {
-  return allEpisodes.filter((episode) => ids.includes(episode.id));
-};
-
-// Función para extraer IDs de episodios desde las URLs
+/**
+ * Extrae los IDs de episodios de una lista de URLs de episodios
+ * @param urls Array de URLs de episodios
+ * @returns Array de IDs de episodios como números
+ */
 export const getEpisodeIdsFromUrls = (urls: string[]): number[] => {
   return urls.map((url) => parseInt(url.split("/").pop() || "0", 10));
 };

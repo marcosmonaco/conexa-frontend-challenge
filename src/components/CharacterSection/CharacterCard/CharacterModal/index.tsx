@@ -22,13 +22,11 @@ export default function CharacterModal({
         data-testid="character-modal-backdrop"
       />
 
-      {/* Modal */}
       <div
         className="relative overflow-y-auto w-full max-w-lg rounded-lg bg-gray-800 text-left transition-all z-10 m-4 border-4 border-RM-green-300 shadow-glow-green"
         data-testid="character-modal-content"
       >
         <div className="relative bg-gray-800 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-          {/* Close button */}
           <button
             type="button"
             className="absolute top-2 right-1 text-gray-400 hover:text-white focus:outline-none"
@@ -51,7 +49,6 @@ export default function CharacterModal({
           </button>
 
           <div className="sm:flex sm:items-start">
-            {/* Character image */}
             <div className="mx-auto flex-shrink-0 flex items-center justify-center h-48 w-48 rounded-md sm:mx-0 sm:h-64 sm:w-64">
               <img
                 src={character.image}
@@ -61,7 +58,6 @@ export default function CharacterModal({
               />
             </div>
 
-            {/* Character details */}
             <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
               <h3
                 className="text-2xl leading-6 font-bold text-RM-cyan-300 mb-4"

@@ -1,4 +1,5 @@
 import React from "react";
+
 import {StatusFiltersProps} from "./types";
 
 export default function StatusFilters({
