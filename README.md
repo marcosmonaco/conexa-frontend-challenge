@@ -1,6 +1,14 @@
+# Puntos a destacar
+Dejo un listado de cosas que agregue al desafio y me gustaria destacar.
+
+- Server Side Rendering.
+- Cursor Personalizado.
+- Pagina de 404 (Not found) personalizada.
+- Tour de la pagina (Si presionamos a la nave espacial en la parte inferior derecha de la pagina) utilizando DriverJS.
+
+
 # Ssr. Frontend Developer (NextJS)
 
----
 
 Este trabajo práctico tiene como objetivo principal conocer las mejores prácticas del candidato, para ello se solicita tomarse el tiempo de leer bien la consigna y entregar el mejor desarrollo posible. Todo componente agregado será considerado como un **`Plus`**.
 
@@ -15,7 +23,7 @@ Este trabajo práctico tiene como objetivo principal conocer las mejores prácti
 
 ## 🎯 Objetivo:
 
----
+
 
 <aside>
 💡 **Obligatorio:** Recorda abrir un repositorio público (puede ser Github, Gitlab, Bitbucket…) 
