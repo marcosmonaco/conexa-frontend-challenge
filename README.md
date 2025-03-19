@@ -7,6 +7,24 @@ Dejo un listado de cosas que agregue al desafio y me gustaria destacar.
 - Tour de la pagina (Si presionamos a la nave espacial en la parte inferior derecha de la pagina) utilizando DriverJS.
 
 
+# Pasos para levantar el proyecto local
+
+- Instalar dependencias
+
+```bash
+  npm install
+```
+- Levantar en local
+
+```bash
+  npm run dev
+```
+- Correr los tests
+
+```bash
+  npm test
+```
+
 # Ssr. Frontend Developer (NextJS)
 
 
