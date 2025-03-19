@@ -79,9 +79,11 @@ export default function CharacterSection({
   }, [loading, hasMore, loadMore]);
 
   return (
-    <div className="w-full bg-transparent border-2 border-RM-green-300 shadow-glow-green rounded-xl pt-4 px-2">
-      {/* Filtros de status con checkboxes personalizados */}
-      <div className="flex flex-col lg:flex-row items-center justify-between mx-1 lg:mx-10">
+    <div className="w-full bg-transparent border-2 border-RM-green-300 shadow-glow-green rounded-xl pt-4 px-4">
+      <div
+        className="flex flex-col lg:flex-row items-center justify-between lg:mx-10"
+        id="status-filter"
+      >
         <h3 className="text-lg font-semibold text-white pb-2">{title}</h3>
         <StatusFilters
           statusFilter={statusFilter}

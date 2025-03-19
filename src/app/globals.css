@@ -32,6 +32,7 @@
     --foreground: #ededed;
   }
 }
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -83,6 +84,7 @@ select,
 
 /* Para Firefox */
 * {
+  cursor: url("/cursor/pickle-rick.png"), auto !important;
   scrollbar-color: var(--color-RM-green-300) transparent;
 }
 
@@ -97,4 +99,38 @@ select,
 }
 .animate-spin {
   animation: spin 1.5s linear infinite;
+}
+
+/* Animacion para el boton del Tour */
+.spaceship {
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  z-index: 50;
+  cursor: pointer;
+  animation: spaceship 2s ease-in-out infinite;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+@keyframes spaceship {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.driver-popover {
+  cursor: url("/cursor/pickle-rick.png"), auto;
+}
+
+.driver-popover-prev-btn,
+.driver-popover-next-btn {
+  cursor: url("/cursor/pickle-rick-pointer.png"), auto !important;
 }

@@ -84,6 +84,7 @@ export default function CharacterCard({
           <button
             onClick={handleModalOpen}
             className="bg-RM-cyan-400 hover:bg-RM-cyan-500 px-4 py-1.5 rounded-lg text-white text-sm font-semibold transition-colors"
+            id="view-details"
           >
             View details
           </button>

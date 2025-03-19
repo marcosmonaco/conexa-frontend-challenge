@@ -100,7 +100,6 @@ describe("StatusFilters", () => {
 
     const mainContainer = container.firstChild as HTMLElement;
     expect(mainContainer).toHaveClass("flex");
-    expect(mainContainer).toHaveClass("flex-col");
-    expect(mainContainer).toHaveClass("lg:flex-row");
+    expect(mainContainer).toHaveClass("flex-wrap");
   });
 });
