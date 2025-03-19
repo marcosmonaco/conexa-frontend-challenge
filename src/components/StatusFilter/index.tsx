@@ -1,11 +1,21 @@
 import React from "react";
-
 import {StatusFiltersProps} from "./types";
 
 export default function StatusFilters({
   statusFilter,
   onChange,
 }: StatusFiltersProps) {
+  const handleFilterChange = (filterType: "alive" | "dead" | "unknown") => {
+    const activeFiltersCount =
+      Object.values(statusFilter).filter(Boolean).length;
+
+    if (activeFiltersCount === 1 && statusFilter[filterType] === true) {
+      return;
+    }
+
+    onChange(filterType);
+  };
+
   return (
     <div className="flex flex-wrap justify-center gap-6 pb-2">
       {/* Filtro Alive */}
@@ -14,7 +24,7 @@ export default function StatusFilters({
           <input
             type="checkbox"
             checked={statusFilter.alive}
-            onChange={() => onChange("alive")}
+            onChange={() => handleFilterChange("alive")}
             className="sr-only"
           />
           <div
@@ -23,7 +33,7 @@ export default function StatusFilters({
             } bg-transparent flex items-center justify-center`}
           >
             {statusFilter.alive && (
-              <div className="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+              <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
             )}
           </div>
         </div>
@@ -38,7 +48,7 @@ export default function StatusFilters({
           <input
             type="checkbox"
             checked={statusFilter.dead}
-            onChange={() => onChange("dead")}
+            onChange={() => handleFilterChange("dead")}
             className="sr-only"
           />
           <div
@@ -47,7 +57,7 @@ export default function StatusFilters({
             } bg-transparent flex items-center justify-center`}
           >
             {statusFilter.dead && (
-              <div className="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+              <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
             )}
           </div>
         </div>
@@ -62,7 +72,7 @@ export default function StatusFilters({
           <input
             type="checkbox"
             checked={statusFilter.unknown}
-            onChange={() => onChange("unknown")}
+            onChange={() => handleFilterChange("unknown")}
             className="sr-only"
           />
           <div
@@ -71,7 +81,7 @@ export default function StatusFilters({
             } bg-transparent flex items-center justify-center`}
           >
             {statusFilter.unknown && (
-              <div className="w-2.5 h-2.5 rounded-full bg-gray-500"></div>
+              <div className="w-2.5 h-2.5 rounded-full bg-gray-500" />
             )}
           </div>
         </div>
